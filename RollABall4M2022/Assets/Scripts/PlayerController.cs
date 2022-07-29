@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     // Numero de moedas coletadas
     public int coins = 0;
+
+    public int cube = 0;
+
     
     // Guarda uma referência para os controles que criamos no InputAction
     private GameControls _gameControls;
@@ -201,12 +204,30 @@ public class PlayerController : MonoBehaviour
         {
             // Aumente o numero de coins do jogador em uma unidade
             coins++;
-            
+
             // Manda a notificação da mudança do valor de coins
             PlayerObserverManager.CoinsChanged(coins);
-            
+
             // Destrua o objeto da coin
             Destroy(other.gameObject);
+
         }
+
+        if (other.CompareTag("colec"))
+        {
+            // Aumente o numero de coins do jogador em uma unidade
+            cube++;
+
+            // Manda a notificação da mudança do valor de coins
+            //PlayerObserverManager.ColecChanged(cube);
+
+            colecText.text = cube.ToString();
+
+            // Destrua o objeto da coin
+            Destroy(other.gameObject);
+
+        }
+
     }
+
 } //NAO ESCREVA DEPOIS DESSA ULTIMA CHAVE Ò.Ó

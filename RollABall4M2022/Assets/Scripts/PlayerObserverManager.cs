@@ -11,6 +11,7 @@ public static class PlayerObserverManager
     // Canal da variavel coins do PlayerController
     // 1 - Parte da inscrição
     public static Action<int> OnCoinsChanged;
+    public static Action<int> OnColecChanged;
     
     // 2 - Parte do sininho (notificação)
     public static void CoinsChanged(int value)
@@ -19,4 +20,7 @@ public static class PlayerObserverManager
         // caso tenha, mande o value para todos
         OnCoinsChanged?.Invoke(value);
     }
+
+    
 }
+
